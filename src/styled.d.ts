@@ -11,6 +11,9 @@ declare module 'styled-components' {
       secondaryBg: string;
       elevationBaseColor: string;
       buttonColor: string;
+      cardBg: string;
+      cardHeaderBg: string;
+      cardBorderColor: string;
     },
     button: {
       borderWidth: string;
@@ -24,6 +27,10 @@ declare module 'styled-components' {
     gutter: {
       x: string,
       y: string
-    };
+    },
+    card: {
+      paddingY: string,
+      paddingX: string,
+    }
   }
 }

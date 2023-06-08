@@ -6,16 +6,19 @@ import ExpenseDate from '../ExpenseDate';
 /*Types*/
 import {ExpenseItemProps} from '../../global/utils/Types'
 
-
 /*Styles*/
+import { ExpenseItemContainer } from './ExpenseItem.style';
+import { usdFormatter } from '../../global/utils/Helpers';
 
 function ExpenseItem({item} : ExpenseItemProps) {
   return (
-    <div className="expense-item">
+    <ExpenseItemContainer>
       <ExpenseDate date={item.date} />
-      <div className='expense-item--title'>{item.title}</div>        
-      <div className='expense-item--amount'>{item.amount}</div>
-    </div>
+      <div className='expense-item--content'>
+        <div className='expense-item--amount'>{usdFormatter.format(item.amount)}</div>
+        <div className='expense-item--title'>{item.title}</div>       
+      </div>      
+    </ExpenseItemContainer>
   );
 }
 

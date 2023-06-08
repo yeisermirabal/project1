@@ -9,7 +9,10 @@ const theme: DefaultTheme = {
     bodyColor: 'hsla(0,0%,100%,.87)',
     secondaryBg: '#2a2b36',
     elevationBaseColor: '0,0,0',
-    buttonColor: '#000015'
+    buttonColor: '#000015',
+    cardBg: '#24252f',
+    cardHeaderBg: '#282933',
+    cardBorderColor: 'hsla(0,0%,100%,.075)'
   },
   button: {
     borderWidth: '1px',
@@ -23,6 +26,10 @@ const theme: DefaultTheme = {
   gutter: {
     x: '1.5rem',
     y: '0'
+  },
+  card: {
+    paddingY: '0.5rem',
+    paddingX: '1rem'
   }
 };
 

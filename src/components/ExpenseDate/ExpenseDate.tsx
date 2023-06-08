@@ -4,6 +4,7 @@ import React from 'react';
 import {ExpenseDateProps} from '../../global/utils/Types'
 
 /*Styles*/
+import { ExpenseDateContainer } from './ExpenseDate.style';
 
 function ExpenseDate({date}: ExpenseDateProps) {
   const day = date.toLocaleString('en-En', {day: '2-digit'});
@@ -11,11 +12,11 @@ function ExpenseDate({date}: ExpenseDateProps) {
   const year = date.getFullYear();
   
   return (
-    <div className='expense-date'>
-        <div className='expense-date--month'>{month}</div>
-        <div className='expense-date--year'>{year}</div>
-        <div className='expense-date--day'>{day}</div>        
-    </div>
+    <ExpenseDateContainer>
+      <div className='expense-date--month'>{month}</div>
+      <div className='expense-date--year'>{year}</div>
+      <div className='expense-date--day'>{day}</div>        
+    </ExpenseDateContainer>
   );
 }
 
