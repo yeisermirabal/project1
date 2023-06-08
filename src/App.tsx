@@ -2,9 +2,11 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 /*Components*/
-import Header from './layout/Header'
-import Footer from './layout/Footer'
-import ExpenseList from './components/ExpenseList';
+import Header from './components/UI/Header'
+import Footer from './components/UI/Footer'
+import ExpenseList from './components/Expenses/ExpenseList';
+import NewExpense from './components/NewExpense';
+import Card from './components/UI/Card';
 
 /*Styles*/
 import theme from './global/Theme';
@@ -20,7 +22,12 @@ function App() {
         <Header />
         <MainContent>
           <div className='container'>
-            <ExpenseList />          
+            <Card title="This is a header">
+              <NewExpense /> 
+            </Card> 
+            <Card title="This is a header">
+              <ExpenseList /> 
+            </Card>                     
           </div>          
         </MainContent>      
         <Footer />

@@ -4,13 +4,13 @@ import React from 'react';
 import ExpenseItem from '../ExpenseItem'
 
 /*Types*/
-import {IExpenseItem} from '../../global/utils/Types'
+import {IExpenseItem} from '../../../global/utils/Types'
 
 /*Styles*/
 import { ExpenseListContainer } from './ExpenseList.style';
-import Card from '../../layout/Card';
+import Card from '../../UI/Card';
 
-function ExpenseList() {
+const ExpenseList = () => {
   const expenseList = [
     {
       id: 'e1',
@@ -33,37 +33,34 @@ function ExpenseList() {
     },
     {
       id: 'e5',
-      title: 'New Desk (Wooden)',
-      amount: 450,
+      title: 'New Desk2',
+      amount: 50,
       date: new Date(2021, 5, 12),
     },
     {
       id: 'e6',
-      title: 'New Desk (Wooden)',
-      amount: 450,
+      title: 'New Desk Teste',
+      amount: 45,
       date: new Date(2021, 5, 12),
     }
   ]
   
-  return (
-    <Card title="This is a header">
-      <ExpenseListContainer>
-        <div className='row'>
-          {
-            expenseList.map((expense: IExpenseItem) => {
-              return (
-                <div className='col-lg-4 col-sm-6 col-12'>
-                  <Card className="mb-3">
-                    <ExpenseItem key={expense.id} item={expense} />
-                  </Card>                  
-                </div>
-              )
-            })
-          }
-        </div>        
-      </ExpenseListContainer>   
-    </Card>
-    
+  return (    
+    <ExpenseListContainer>
+      <div className='row'>
+        {
+          expenseList.map((expense: IExpenseItem) => {
+            return (
+              <div className='col-lg-4 col-sm-6 col-12'>
+                <Card className="mb-3">
+                  <ExpenseItem key={expense.id} item={expense} />
+                </Card>                  
+              </div>
+            )
+          })
+        }
+      </div>        
+    </ExpenseListContainer>      
   );
 }
 

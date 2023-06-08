@@ -7,9 +7,9 @@ import BtnGroup from '../BtnGroup';
 import { HeaderContainer } from './Header.style';
 
 /*Icons*/
-import {ReactComponent as Logo} from "../../global/assets/logo.svg";
+import {ReactComponent as Logo} from "../../../global/assets/logo.svg";
 
-function Header() {
+const Header = () => {
   return (
     <HeaderContainer>
       <div className='container'>

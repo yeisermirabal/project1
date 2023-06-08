@@ -3,7 +3,7 @@ import React from 'react';
 /*Styles */
 import { FooterContainer } from './Footer.style';
 
-function Footer() {
+const Footer = () => {
   return (
     <FooterContainer>
       Project1 © 2023 wonderLabs

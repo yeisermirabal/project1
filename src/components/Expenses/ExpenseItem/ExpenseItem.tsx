@@ -2,15 +2,15 @@ import React from 'react';
 
 /*Components*/
 import ExpenseDate from '../ExpenseDate';
+import { usdFormatter } from '../../../global/utils/Helpers';
 
 /*Types*/
-import {ExpenseItemProps} from '../../global/utils/Types'
+import {ExpenseItemProps} from '../../../global/utils/Types'
 
 /*Styles*/
 import { ExpenseItemContainer } from './ExpenseItem.style';
-import { usdFormatter } from '../../global/utils/Helpers';
 
-function ExpenseItem({item} : ExpenseItemProps) {
+const ExpenseItem = ({item} : ExpenseItemProps) => {
   return (
     <ExpenseItemContainer>
       <ExpenseDate date={item.date} />

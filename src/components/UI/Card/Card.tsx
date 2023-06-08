@@ -1,7 +1,7 @@
 import React from 'react';
 
 /*Types */
-import { CardProps } from '../../global/utils/Types';
+import { CardProps } from '../../../global/utils/Types';
 
 /*Styles */
 import { CardContainer } from './Card.style';

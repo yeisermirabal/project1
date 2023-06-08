@@ -4,10 +4,10 @@ import React from 'react';
 import { BtnGroupContainer } from './BtnGroup.style';
 
 /*Icons*/
-import {ReactComponent as SunIcon} from "../../global/assets/sun-icon.svg";
-import {ReactComponent as MoonIcon} from "../../global/assets/moon-icon.svg";
+import {ReactComponent as SunIcon} from "../../../global/assets/sun-icon.svg";
+import {ReactComponent as MoonIcon} from "../../../global/assets/moon-icon.svg";
 
-function BtnGroup() {
+const BtnGroup = () => {
   return (
     <BtnGroupContainer>
       <div className='btn--group'>

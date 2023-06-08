@@ -14,6 +14,7 @@ export const CardContainer = styled.div`
       flex-direction: column;
       min-width: 0;
       position: relative;
+      margin-bottom: 1.5rem;    
 
       .card-header {
         background-color: ${colors.cardHeaderBg};
