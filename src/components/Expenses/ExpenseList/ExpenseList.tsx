@@ -52,7 +52,7 @@ const ExpenseList = () => {
           expenseList.map((expense: IExpenseItem) => {
             return (
               <div className='col-lg-4 col-sm-6 col-12'>
-                <Card className="mb-3">
+                <Card>
                   <ExpenseItem key={expense.id} item={expense} />
                 </Card>                  
               </div>

@@ -12,11 +12,11 @@ const BtnGroup = () => {
     <BtnGroupContainer>
       <div className='btn--group'>
         <input type="radio" id="btn-light-theme" className='btn-check' name="theme-switch" />
-        <label className='btn--label btn--light' htmlFor='btn-light-theme'>
+        <label className='btn btn--label btn--light' htmlFor='btn-light-theme'>
           <SunIcon />
         </label>
         <input type="radio" id="btn-dark-theme" className='btn-check' name="theme-switch" checked />
-        <label className='btn--label btn--dark' htmlFor='btn-dark-theme'>
+        <label className='btn btn--label btn--dark' htmlFor='btn-dark-theme'>
           <MoonIcon />
         </label>
       </div>

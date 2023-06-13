@@ -10,10 +10,8 @@ import { NewExpenseContainer } from './NewExpense.style';
 
 const NewExpense = () => {
   return (
-    <NewExpenseContainer>
-      <div className='row'>
-        <ExpenseForm /> 
-      </div>             
+    <NewExpenseContainer>      
+      <ExpenseForm />        
     </NewExpenseContainer>
   );
 }

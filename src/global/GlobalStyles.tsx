@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   ${({ theme }) => {
-    const { colors, font, gutter } = theme;
+    const { colors, font, gutter, button } = theme;
 
     return `
       * {
@@ -50,6 +50,31 @@ const GlobalStyles = createGlobalStyle`
         vertical-align: -0.125rem;
       }
 
+      .btn {
+        background-color: ${colors.primary};
+        box-shadow: 0 1px 1px 0 rgba(var(${colors.elevationBaseColor},60,75,100),.14),0 2px 1px -1px rgba(var(${colors.elevationBaseColor},60,75,100),.12),0 1px 3px 0 rgba(var(${colors.elevationBaseColor},60,75,100),.2);        
+        border: ${button.borderWidth} solid ${colors.primary};
+        border-radius: ${button.borderRadius};
+        color: ${colors.buttonColor};
+        cursor: pointer;
+        display: inline-block;
+        padding: ${button.paddingY} ${button.paddingX};
+        text-align: center;
+        text-decoration: none;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        user-select: none;
+        vertical-align: middle;      
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+
+        &:hover {
+          background-color: ${colors.buttonHoverBg};
+          border-color: ${colors.buttonHoverBorderColor};
+          color: ${colors.buttonColor};
+        }
+      }
+
       .container,
       .container-fluid {
         margin-left: auto;
@@ -81,8 +106,8 @@ const GlobalStyles = createGlobalStyle`
         width: 100%;
       }
 
-      .mb-3 {
-        margin-bottom: 1rem;
+      .mb-4 {
+        margin-bottom: 1.5rem;
       }
 
       .mr-3 {

@@ -10,9 +10,13 @@ const theme: DefaultTheme = {
     secondaryBg: '#2a2b36',
     elevationBaseColor: '0,0,0',
     buttonColor: '#000015',
+    buttonHoverBg: '#9791d4',
+    buttonHoverBorderColor: '#918ad1',
     cardBg: '#24252f',
     cardHeaderBg: '#282933',
-    cardBorderColor: 'hsla(0,0%,100%,.075)'
+    cardBorderColor: 'hsla(0,0%,100%,.075)',
+    inputBg: 'hsla(0,0%,100%,.05)',
+    inputBorder: 'hsla(0,0%,100%,.09)'
   },
   button: {
     borderWidth: '1px',
@@ -25,7 +29,7 @@ const theme: DefaultTheme = {
   },
   gutter: {
     x: '1.5rem',
-    y: '0'
+    y: '1rem'
   },
   card: {
     paddingY: '0.5rem',

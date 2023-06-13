@@ -11,9 +11,13 @@ declare module 'styled-components' {
       secondaryBg: string;
       elevationBaseColor: string;
       buttonColor: string;
+      buttonHoverBg: string;
+      buttonHoverBorderColor: string;
       cardBg: string;
       cardHeaderBg: string;
       cardBorderColor: string;
+      inputBg: string;
+      inputBorder: string;
     },
     button: {
       borderWidth: string;

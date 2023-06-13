@@ -22,10 +22,10 @@ function App() {
         <Header />
         <MainContent>
           <div className='container'>
-            <Card title="This is a header">
+            <Card title="Add new expense" className='mb-4'>
               <NewExpense /> 
             </Card> 
-            <Card title="This is a header">
+            <Card title="Expenses">
               <ExpenseList /> 
             </Card>                     
           </div>          
