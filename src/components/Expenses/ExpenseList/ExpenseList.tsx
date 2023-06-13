@@ -16,9 +16,10 @@ const ExpenseList = ({items}: ExpenseListProps) => {
   const [filteredYear, setFilteredYear] = useState('2020');
 
   const filterChangeHandler = (selectedYear: string) => {
-    console.log(selectedYear)
     setFilteredYear(selectedYear);
   }
+
+  const filteredExpenses = items.filter((expense) => expense.date.getFullYear().toString() === filteredYear)
   
   return (    
     <ExpenseListContainer>
@@ -30,16 +31,22 @@ const ExpenseList = ({items}: ExpenseListProps) => {
         </div>
       </div>
       <div className='row'>
-        {
-          items.map((expense: IExpenseItem) => {
+        {filteredExpenses.length === 0 && (
+            <div className='col-12 text-center'>
+              <p>No expenses found.</p>
+            </div>
+        )}
+        {filteredExpenses && filteredExpenses.map((expense: IExpenseItem) => {
             return (
-              <div className='col-lg-4 col-sm-6 col-12' key={expense.id}>
-                <Card>
-                  <ExpenseItem item={expense} />
-                </Card>                  
+              <div className='col-lg-4 col-sm-6 col-12' key={expense.id}>               
+                <ExpenseItem 
+                  title={expense.title} 
+                  amount={expense.amount}  
+                  date={expense.date} 
+                />                
               </div>
             )
-          })
+          })          
         }
       </div>        
     </ExpenseListContainer>      

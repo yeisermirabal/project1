@@ -4,14 +4,14 @@ import React from 'react';
 import ExpenseForm from '../Expenses/ExpenseForm';
 
 /*Types*/
-import { IExpenseItem, NewExpenseProps } from '../../global/utils/Types';
+import { ExpenseItemProps, NewExpenseProps } from '../../global/utils/Types';
 
 /*Styles*/
 import { NewExpenseContainer } from './NewExpense.style';
 
 const NewExpense = ({onAddExpense}: NewExpenseProps) => {
 
-  const saveExpenseDataHandler = (expenseData: IExpenseItem) => {
+  const saveExpenseDataHandler = (expenseData: ExpenseItemProps) => {
     onAddExpense({
       ...expenseData,
       id: Math.random().toString()

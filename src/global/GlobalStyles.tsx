@@ -122,7 +122,12 @@ const GlobalStyles = createGlobalStyle`
 
       label {
         display: inline-block;
-        margi-bottom:0.5rem;
+        margin-bottom:0.5rem;
+        font-weight: 500;
+      }
+
+      .text-center {
+        text-align: center;
       }
 
       .container,
