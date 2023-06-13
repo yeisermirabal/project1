@@ -1,59 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 /*Components */
 import ExpenseItem from '../ExpenseItem'
+import Card from '../../UI/Card';
+import ExpenseFilter from '../ExpenseFilter';
 
 /*Types*/
-import {IExpenseItem} from '../../../global/utils/Types'
+import {ExpenseListProps, IExpenseItem} from '../../../global/utils/Types'
 
 /*Styles*/
 import { ExpenseListContainer } from './ExpenseList.style';
-import Card from '../../UI/Card';
 
-const ExpenseList = () => {
-  const expenseList = [
-    {
-      id: 'e1',
-      title: 'Toilet Paper',
-      amount: 94.12,
-      date: new Date(2020, 7, 14),
-    },
-    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
-    {
-      id: 'e3',
-      title: 'Car Insurance',
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
-    },
-    {
-      id: 'e4',
-      title: 'New Desk (Wooden)',
-      amount: 450,
-      date: new Date(2021, 5, 12),
-    },
-    {
-      id: 'e5',
-      title: 'New Desk2',
-      amount: 50,
-      date: new Date(2021, 5, 12),
-    },
-    {
-      id: 'e6',
-      title: 'New Desk Teste',
-      amount: 45,
-      date: new Date(2021, 5, 12),
-    }
-  ]
+
+const ExpenseList = ({items}: ExpenseListProps) => {
+  const [filteredYear, setFilteredYear] = useState('2020');
+
+  const filterChangeHandler = (selectedYear: string) => {
+    console.log(selectedYear)
+    setFilteredYear(selectedYear);
+  }
   
   return (    
     <ExpenseListContainer>
       <div className='row'>
+        <div className='col-12'>
+          <Card className='mb-4'>
+            <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+          </Card>                  
+        </div>
+      </div>
+      <div className='row'>
         {
-          expenseList.map((expense: IExpenseItem) => {
+          items.map((expense: IExpenseItem) => {
             return (
-              <div className='col-lg-4 col-sm-6 col-12'>
+              <div className='col-lg-4 col-sm-6 col-12' key={expense.id}>
                 <Card>
-                  <ExpenseItem key={expense.id} item={expense} />
+                  <ExpenseItem item={expense} />
                 </Card>                  
               </div>
             )

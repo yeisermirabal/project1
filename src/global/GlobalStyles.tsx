@@ -75,6 +75,56 @@ const GlobalStyles = createGlobalStyle`
         }
       }
 
+      input,
+      select {
+        appearance: none;        
+        background-color: ${colors.inputBg};
+        border: 1px solid ${colors.inputBorder};
+        border-radius: .375rem;
+        color: ${colors.bodyColor};
+        display: block;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;        
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        width: 100%;
+
+        &:focus {
+            background-color: ${colors.inputBg};
+            border-color: ${colors.inputBorder};
+            box-shadow: 0 0 0 0.25rem rgba(50,31,219,.25);
+            color: ${colors.bodyColor};
+            outline: 0;
+        }
+      }
+
+      input {
+        background-clip: padding-box;
+        padding: .375rem .75rem;
+      }
+
+      select {      
+        background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiAxNic+PHBhdGggZmlsbD0nbm9uZScgc3Ryb2tlPScjNjM2ZjgzJyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnIHN0cm9rZS13aWR0aD0nMicgZD0nbTIgNSA2IDYgNi02Jy8+PC9zdmc+);
+        background-repeat: no-repeat;
+        background-size: 16px 12px;
+        padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+        background-position: right 0.75rem center;        
+        word-wrap: normal;
+
+        & > option {
+          background-color: ${colors.cardHeaderBg};
+        }
+      }
+
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1) hue-rotate(180deg);
+      }   
+
+      label {
+        display: inline-block;
+        margi-bottom:0.5rem;
+      }
+
       .container,
       .container-fluid {
         margin-left: auto;
