@@ -9,7 +9,11 @@ import { HeaderContainer } from './Header.style';
 /*Icons*/
 import {ReactComponent as Logo} from "../../../global/assets/logo.svg";
 
-const Header = () => {
+/*Types */
+import { HeaderProps } from '../../../global/utils/Types';
+
+
+const Header = ({ toggleTheme, currentTheme }: HeaderProps) => {
   return (
     <HeaderContainer>
       <div className='container'>
@@ -18,7 +22,7 @@ const Header = () => {
             <Logo />
           </div>
           <ul className='header--navbar'>
-            <BtnGroup />
+            <BtnGroup toggleTheme={toggleTheme} currentTheme={currentTheme} />
           </ul>
         </div>
       </div>

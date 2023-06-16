@@ -14,6 +14,7 @@ export const ExpenseDateContainer = styled.div`
             text-transform: uppercase;
             border-radius: 0.375rem;
             line-height: 1.1rem;
+            color: #FFFFFF;
 
             .expense-date--day {
                 font-size: 1.8rem;                

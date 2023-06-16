@@ -7,6 +7,10 @@ export interface IExpenseItem {
     amount: number
 }
 
+export interface HeaderProps {
+    toggleTheme: () => void
+    currentTheme: string
+}
 export interface ExpenseItemProps {
     id?: string
     date: Date
@@ -20,7 +24,14 @@ export interface IExpenseItemForm {
     amount: string
 }
 
-export interface ExpenseListProps {
+export interface ExpensesProps {
+    items: IExpenseItem[]
+    onClickAdd: () => void
+    canShowForm: boolean
+}
+
+
+export interface ExpensesListProps {
     items: IExpenseItem[]
 }
 
@@ -30,10 +41,13 @@ export interface ExpenseDateProps {
 
 export interface ExpenseFormProps {
     onSaveExpenseData: (expenseData: ExpenseItemProps) => void;
+    onClickAdd: () => void;
 }
 
 export interface NewExpenseProps {
-    onAddExpense: (expenseData: IExpenseItem) => void;
+    onSubmitNewExpense: (expenseData: IExpenseItem) => void;
+    canShowForm: boolean;
+    onClickAdd: () => void;
 }
 
 export interface CardProps {
@@ -45,4 +59,20 @@ export interface CardProps {
 export interface ExpenseFilterProps {
     selected: string;
     onChangeFilter: (selectedYear: string) => void;
+    onClickAdd: () => void;
+    canShowForm: boolean
+}
+
+export interface IDataPoint {
+    label: string;
+    value: number;
+}
+export interface ChartProps {
+    dataPoints: IDataPoint[]
+}
+
+export interface ChartBarProps {
+    label: string;
+    value: number;
+    maxValue: number | null;
 }

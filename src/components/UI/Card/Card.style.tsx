@@ -9,7 +9,7 @@ export const CardContainer = styled.div`
       background-clip: initial;
       background-color: ${colors.cardBg};
       border-radius: 0.375rem;
-      box-shadow: 0 1px 1px 0 rgba(var(${colors.elevationBaseColor},60,75,100),.14),0 2px 1px -1px rgba(var(${colors.elevationBaseColor},60,75,100),.12),0 1px 3px 0 rgba(var(${colors.elevationBaseColor},60,75,100),.2);
+      box-shadow: 0 1px 1px 0 rgba(60,75,100,.14),0 2px 1px -1px rgba(60,75,100,.12),0 1px 3px 0 rgba(60,75,100,.2);
       display: flex;
       flex-direction: column;
       min-width: 0;

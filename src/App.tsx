@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 /*Components*/
 import Header from './components/UI/Header'
 import Footer from './components/UI/Footer'
-import ExpenseList from './components/Expenses/ExpenseList';
+import Expenses from './components/Expenses';
 import NewExpense from './components/NewExpense';
-import Card from './components/UI/Card';
 
 /*Types */
 import { IExpenseItem } from './global/utils/Types';
 
 /*Styles*/
-import theme from './global/Theme';
-import GlobalStyles from './global/GlobalStyles';
 import { AppWrapper, MainContent } from './App.style';
+import lightTheme from './global/LightTheme';
+import darkTheme from './global/DarkTheme';
+import GlobalStyles from './global/GlobalStyles';
 
 const INITIAL_EXPENSES = [
   {
@@ -50,34 +50,51 @@ const INITIAL_EXPENSES = [
   }
 ]
 
-function App() {
+const App = () => {
   const [expense, setExpense] = useState(INITIAL_EXPENSES)
+  const [showForm, setShowForm] = useState(false)
+  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('dark');
 
-  const addExpenseHandler = (expenseData: IExpenseItem) => {
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+        setCurrentTheme(storedTheme as 'light' | 'dark');
+    }
+  }, []);
+
+  const submitNewExpenseHandler = (expenseData: IExpenseItem) => {
     setExpense(prevExpense => {
       return [expenseData, ...prevExpense]
     })
   }
 
+  const clickAddButtonHandler = () => {
+    setShowForm((prevState) => !prevState)
+  }
+
+  const toggleTheme = () => {
+    setCurrentTheme((prevTheme) => {
+      const newTheme = prevTheme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme);
+      return newTheme;
+    });
+  };
+
+  console.log(currentTheme)
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles/>
+    <ThemeProvider theme={currentTheme === 'light' ? lightTheme : darkTheme}>
+      <GlobalStyles />
       <AppWrapper>
-        <Header />
+        <Header toggleTheme={toggleTheme} currentTheme={currentTheme} />
         <MainContent>
           <div className='container'>
-            <Card title="Add New Expense" className='mb-4'>
-              <NewExpense onAddExpense={addExpenseHandler} /> 
-            </Card> 
-            <Card title="Expense List">
-              <ExpenseList items={expense} /> 
-            </Card>                     
-          </div>          
-        </MainContent>      
+            <NewExpense onSubmitNewExpense={submitNewExpenseHandler} canShowForm={showForm} onClickAdd={clickAddButtonHandler} />
+            <Expenses items={expense} onClickAdd={clickAddButtonHandler} canShowForm={showForm} />
+          </div>
+        </MainContent>
         <Footer />
       </AppWrapper>
     </ThemeProvider>
-    
   );
 }
 

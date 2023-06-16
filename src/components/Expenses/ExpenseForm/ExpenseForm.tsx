@@ -6,14 +6,14 @@ import { ExpenseFormProps, IExpenseItemForm } from '../../../global/utils/Types'
 /*Styles*/
 import { ExpenseFormContainer } from './ExpenseForm.style';
 
-const initialState = {
+const INITIAL_STATE = {
   title: '',
   amount: '',
   date: '',
 }
 
-const ExpenseForm = ({onSaveExpenseData}: ExpenseFormProps) => {
-  const [inputControl, setInputControl] = useState<IExpenseItemForm>(initialState)
+const ExpenseForm = ({onSaveExpenseData, onClickAdd}: ExpenseFormProps) => {
+  const [inputControl, setInputControl] = useState<IExpenseItemForm>(INITIAL_STATE)
 
   const inputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -31,10 +31,11 @@ const ExpenseForm = ({onSaveExpenseData}: ExpenseFormProps) => {
     });
 
     resetFormHandler();
+    onClickAdd();
   }
 
   const resetFormHandler = () => {
-    setInputControl(initialState);
+    setInputControl(INITIAL_STATE);
   }
 
   return (
@@ -75,7 +76,8 @@ const ExpenseForm = ({onSaveExpenseData}: ExpenseFormProps) => {
           />
         </div>
         <div className='col-12'>
-          <button className='btn new-expense--btn' type='submit'>Add Expense</button>
+          <button className='btn primary new-expense--btn mr-3' type='submit'>Save</button>
+          <button className='btn secondary' type='button' onClick={onClickAdd}>Cancel</button>
         </div>
       </div>
     </ExpenseFormContainer>

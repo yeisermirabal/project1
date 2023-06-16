@@ -22,16 +22,16 @@ const GlobalStyles = createGlobalStyle`
 
       body {
         -webkit-text-size-adjust: 100%;
-        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: transparent;  
         background-color: ${colors.bodyBg};
-        color: ${colors.bodyColor};
+        color: ${colors.bodyColor};      
         font-family: ${font.family};
         font-size: 1rem;
         font-weight: 400;
         line-height: 1.5;
         min-height: 100%;
       }
-
+      
       a {
         color: inherit;
         text-decoration: none;
@@ -50,12 +50,11 @@ const GlobalStyles = createGlobalStyle`
         vertical-align: -0.125rem;
       }
 
-      .btn {
-        background-color: ${colors.primary};
-        box-shadow: 0 1px 1px 0 rgba(var(${colors.elevationBaseColor},60,75,100),.14),0 2px 1px -1px rgba(var(${colors.elevationBaseColor},60,75,100),.12),0 1px 3px 0 rgba(var(${colors.elevationBaseColor},60,75,100),.2);        
+      .btn {        
+        box-shadow: 0 1px 1px 0 rgba(60,75,100,.14),0 2px 1px -1px rgba(60,75,100,.12),0 1px 3px 0 rgba(60,75,100,.2);        
         border: ${button.borderWidth} solid ${colors.primary};
-        border-radius: ${button.borderRadius};
-        color: ${colors.buttonColor};
+        border-radius: ${button.borderRadius};   
+        color: ${colors.buttonColor};     
         cursor: pointer;
         display: inline-block;
         padding: ${button.paddingY} ${button.paddingX};
@@ -66,7 +65,26 @@ const GlobalStyles = createGlobalStyle`
         vertical-align: middle;      
         font-size: 1rem;
         font-weight: 400;
-        line-height: 1.5;
+        line-height: 1.5;  
+
+        &:disabled {
+          opacity: 0.65;
+          pointer-events: none;
+        }
+
+        &.primary {
+          background-color: ${colors.primary};
+        }
+
+        &.secondary {
+          background-color: ${colors.secondary};
+          border-color: transparent;
+
+          &:hover {
+            background-color: ${colors.buttonSecundaryBg};
+            border-color: transparent;
+          }
+        }
 
         &:hover {
           background-color: ${colors.buttonHoverBg};
@@ -90,10 +108,10 @@ const GlobalStyles = createGlobalStyle`
         width: 100%;
 
         &:focus {
-            background-color: ${colors.inputBg};
-            border-color: ${colors.inputBorder};
-            box-shadow: 0 0 0 0.25rem rgba(50,31,219,.25);
-            color: ${colors.bodyColor};
+          background-color: ${colors.inputBg};
+          border-color: ${colors.inputBorder};
+          box-shadow: 0 0 0 0.25rem rgba(50,31,219,.25);
+          color: ${colors.bodyColor};
             outline: 0;
         }
       }

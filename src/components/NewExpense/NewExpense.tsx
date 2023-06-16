@@ -8,20 +8,28 @@ import { ExpenseItemProps, NewExpenseProps } from '../../global/utils/Types';
 
 /*Styles*/
 import { NewExpenseContainer } from './NewExpense.style';
+import Card from '../UI/Card';
 
-const NewExpense = ({onAddExpense}: NewExpenseProps) => {
+const NewExpense = ({onSubmitNewExpense, canShowForm, onClickAdd}: NewExpenseProps) => {
 
   const saveExpenseDataHandler = (expenseData: ExpenseItemProps) => {
-    onAddExpense({
+    onSubmitNewExpense({
       ...expenseData,
       id: Math.random().toString()
     });
   }
 
   return (
-    <NewExpenseContainer>      
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />        
-    </NewExpenseContainer>
+    <>
+      {
+        canShowForm && 
+        <Card title="Add New Expense" className='mb-4'>
+          <NewExpenseContainer>      
+            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onClickAdd={onClickAdd} />        
+          </NewExpenseContainer>
+        </Card>
+      }
+    </>
   );
 }
 

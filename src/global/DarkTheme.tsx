@@ -12,8 +12,10 @@ const theme: DefaultTheme = {
     buttonColor: '#000015',
     buttonHoverBg: '#9791d4',
     buttonHoverBorderColor: '#918ad1',
+    buttonSecundaryBg: '#8e8e8e',
     cardBg: '#24252f',
     cardHeaderBg: '#282933',
+    cardBodyBg: 'hsla(0,0%,100%,.1)',
     cardBorderColor: 'hsla(0,0%,100%,.075)',
     inputBg: 'hsla(0,0%,100%,.05)',
     inputBorder: 'hsla(0,0%,100%,.09)'
