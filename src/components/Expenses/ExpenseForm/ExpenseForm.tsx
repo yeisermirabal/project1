@@ -14,6 +14,7 @@ const INITIAL_STATE = {
 
 const ExpenseForm = ({onSaveExpenseData, onClickAdd}: ExpenseFormProps) => {
   const [inputControl, setInputControl] = useState<IExpenseItemForm>(INITIAL_STATE)
+  const [isValid, setIsValid] = useState(true);
 
   const inputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -23,7 +24,12 @@ const ExpenseForm = ({onSaveExpenseData, onClickAdd}: ExpenseFormProps) => {
 
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
-    
+
+    if(inputControl.title.trim() === '') {
+      setIsValid(false);
+      return;
+    }
+
     onSaveExpenseData({
       title: inputControl.title,
       amount: parseFloat(inputControl.amount),
@@ -44,7 +50,7 @@ const ExpenseForm = ({onSaveExpenseData, onClickAdd}: ExpenseFormProps) => {
         <div className='col-lg-4 col-sm-6 col-12'>
           <label>Title</label>
           <input 
-            className='new-expense--control' 
+            className={`${!isValid && 'error-input'}`} 
             name='title' 
             type='text' 
             onChange={inputChangeHandler} 

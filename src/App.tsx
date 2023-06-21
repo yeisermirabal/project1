@@ -80,7 +80,6 @@ const App = () => {
     });
   };
 
-  console.log(currentTheme)
   return (
     <ThemeProvider theme={currentTheme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />

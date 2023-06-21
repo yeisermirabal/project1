@@ -114,6 +114,9 @@ const GlobalStyles = createGlobalStyle`
           color: ${colors.bodyColor};
             outline: 0;
         }
+        &.error-input {
+          border-color: red;
+        }
       }
 
       input {
