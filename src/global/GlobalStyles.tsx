@@ -50,6 +50,23 @@ const GlobalStyles = createGlobalStyle`
         vertical-align: -0.125rem;
       }
 
+      ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: ${colors.secondary};
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px;
+        background-color: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: ${colors.primary};
+      }
+
       .btn {        
         box-shadow: 0 1px 1px 0 rgba(60,75,100,.14),0 2px 1px -1px rgba(60,75,100,.12),0 1px 3px 0 rgba(60,75,100,.2);        
         border: ${button.borderWidth} solid ${colors.primary};
